@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>org.jetbrains.kotlinx</groupId>
-        <artifactId>kotlinx.support</artifactId>
+        <artifactId>kotlinx-support</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>kotlinx.support-jdk8</artifactId>
+    <artifactId>kotlinx-support-jdk8</artifactId>
     <packaging>jar</packaging>
 
     <name>Kotlin JDK8 support library</name>
@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
-            <artifactId>kotlinx.support-jdk7</artifactId>
+            <artifactId>kotlinx-support-jdk7</artifactId>
             <version>${version}</version>
             <scope>compile</scope>
         </dependency>

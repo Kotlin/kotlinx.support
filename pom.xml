@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jetbrains.kotlinx</groupId>
-    <artifactId>kotlinx.support</artifactId>
+    <artifactId>kotlinx-support</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -60,8 +60,8 @@
     </distributionManagement>
 
     <modules>
-        <module>kotlinx.support-jdk7</module>
-        <module>kotlinx.support-jdk8</module>
+        <module>kotlinx-support-jdk7</module>
+        <module>kotlinx-support-jdk8</module>
     </modules>
 
     <dependencies>
