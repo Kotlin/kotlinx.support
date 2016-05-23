@@ -1,6 +1,7 @@
 package kotlinx.support.jdk7.test
 
 import kotlinx.support.jdk7.getSuppressed
+import kotlinx.support.jdk7.suppressed
 import java.io.*
 import org.junit.Test
 import kotlin.test.*
@@ -34,7 +35,7 @@ class TryWithResourcesTest {
             Resource().use { error("op fail") }
         }
         assertTrue(e is IllegalStateException)
-        assertTrue(e.getSuppressed().isEmpty())
+        assertTrue(e.suppressed.isEmpty())
     }
 
     @Test fun opFailsCloseFails() {
@@ -42,7 +43,7 @@ class TryWithResourcesTest {
             Resource(faultyClose = true).use { error("op fail") }
         }
         assertTrue(e is IllegalStateException)
-        assertTrue(e.getSuppressed().single() is IOException)
+        assertTrue(e.suppressed.single() is IOException)
     }
 
     @Test fun opFailsCloseFailsTwice() {

@@ -11,4 +11,11 @@ public inline fun Throwable.addSuppressed(exception: Throwable) = (this as java.
 /**
  * Returns an array containing all of the exceptions that were suppressed.
  */
-public inline fun Throwable.getSuppressed(): Array<Throwable> = (this as java.lang.Throwable).getSuppressed()
+public inline fun Throwable.getSuppressed(): Array<Throwable> = (this as java.lang.Throwable).suppressed
+
+/**
+ * Returns an array containing all of the exceptions that were suppressed.
+ */
+public val Throwable.suppressed: Array<Throwable>
+    @JvmName("suppressed")
+    get() = (this as java.lang.Throwable).suppressed
