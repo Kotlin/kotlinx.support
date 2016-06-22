@@ -8,15 +8,19 @@ package kotlinx.support.jdk7
  * @return the result of [block] function on this closable resource.
  */
 public inline fun <T : AutoCloseable, R> T.use(block: (T) -> R): R {
-    val result = try {
-        block(this)
+    var closed = false
+    try {
+        return block(this)
     } catch (e: Throwable) {
+        closed = true
         @Suppress("NON_PUBLIC_CALL_FROM_PUBLIC_INLINE")
         closeSuppressed(e)
         throw e
+    } finally {
+        if (!closed) {
+            close()
+        }
     }
-    close()
-    return result
 }
 
 /**

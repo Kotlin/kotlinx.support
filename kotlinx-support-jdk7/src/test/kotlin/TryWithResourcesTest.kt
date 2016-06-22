@@ -11,16 +11,22 @@ import kotlinx.support.jdk7.use
 
 class Resource(val faultyClose: Boolean = false) : Closeable {
 
+    var isClosed = false
+        private set
+
     override fun close() {
         if (faultyClose)
             throw IOException("Close failed")
+        isClosed = true
     }
 }
 
 class TryWithResourcesTest {
     @Test fun success() {
-        val result = Resource().use { "ok" }
+        val resource = Resource()
+        val result = resource.use { "ok" }
         assertEquals("ok", result)
+        assertTrue(resource.isClosed)
     }
 
     @Test fun closeFails() {
@@ -58,6 +64,25 @@ class TryWithResourcesTest {
         val suppressed = e.getSuppressed()
         assertEquals(2, suppressed.size)
         assertTrue(suppressed.all { it is IOException })
+    }
+
+    @Test fun nonLocalReturnInBlock() {
+        fun Resource.operation(nonLocal: Boolean): String {
+            return use { if (nonLocal) return "nonLocal" else "local" }
+        }
+
+        Resource().let { resource ->
+            val result = resource.operation(nonLocal = false)
+            assertEquals("local", result)
+            assertTrue(resource.isClosed)
+        }
+
+        Resource().let { resource ->
+            val result = resource.operation(nonLocal = true)
+            assertEquals("nonLocal", result)
+            assertTrue(resource.isClosed)
+        }
+
     }
 
 }
