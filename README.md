@@ -24,7 +24,7 @@ Add a dependency:
 <dependency>
     <groupId>org.jetbrains.kotlinx</groupId>
     <artifactId>kotlinx-support-jdk8</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 </dependency>
 ```
 
@@ -33,7 +33,7 @@ Add a dependency:
 Just add a dependency:
 
 ```groovy
-compile 'org.jetbrains.kotlinx:kotlinx-support-jdk8:0.1'
+compile 'org.jetbrains.kotlinx:kotlinx-support-jdk8:0.2'
 ```
 
 jcenter repository should be configured by default in gradle, but if it's not you may need to include it:
