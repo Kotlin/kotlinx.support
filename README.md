@@ -3,7 +3,7 @@ Provides extension and top-level functions to use JDK7/JDK8 features in Kotlin 1
 
 In Kotlin 1.1+ please use the standard library artifacts instead: `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`.
 
-[ ![Download](https://api.bintray.com/packages/kotlin/kotlinx.support/kotlinx.support/images/download.svg) ](https://bintray.com/kotlin/kotlinx.support/kotlinx.support/_latestVersion)
+[![obsolete JetBrains project](http://jb.gg/badges/obsolete.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub) [ ![Download](https://api.bintray.com/packages/kotlin/kotlinx.support/kotlinx.support/images/download.svg) ](https://bintray.com/kotlin/kotlinx.support/kotlinx.support/_latestVersion)
 
 ## Maven
 
